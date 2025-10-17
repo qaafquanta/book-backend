@@ -1,12 +1,10 @@
 import express from "express";
+import bookRoutes from "./routers/book.router.js";
 
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Server running");
-});
+app.use("/books", bookRoutes);
 
-app.listen(3000, () => {
-  console.log("Server listening on http://localhost:3000");
-});
+app.listen(3000, () => console.log("Server running on port 3000"));
+
